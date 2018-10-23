@@ -28,3 +28,4 @@ Thumbs.db
 .vs*/
 _UpgradeReport_Files/
 _ReSharper.*/
+/settings.manifest
