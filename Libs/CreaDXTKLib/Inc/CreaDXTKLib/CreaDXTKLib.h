@@ -16,6 +16,7 @@
 
 #elif defined(_MSVC_LANG)
 
+#pragma comment(lib, "CreaDXTKLib.lib")
 #pragma comment(lib, "Draw.lib")
 #pragma comment(lib, "Input.lib")
 #pragma comment(lib, "Math.lib")
