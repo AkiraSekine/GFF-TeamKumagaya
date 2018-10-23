@@ -1,0 +1,111 @@
+GFF チーム熊谷 コーディング規約
+
+IDE
+    Visual Studio 2017
+ライブラリ
+    DirectX Tool Kit
+    CreaDXTKLib
+
+ 1.命名規則
+    コメントなしでもわかるような名前を付ける
+    アルファベット一文字や,メタ構文は禁止
+
+    ファイル名      UpperCamel
+    ローカル変数    camelCase
+    public変数      camelCase
+    protected変数   m_camelCase
+    private変数     m_camelCase
+    定数            UpperCamel
+    引数            _camelCase
+    関数全て        UpperCamel
+    構造体名        UpperCamel
+    クラス名        UpperCamel
+    列挙型名        UpperCamel
+    列挙型メンバ    UpperCamel
+    namespace       UpperCamel
+    マクロ          SNAKE_CASE
+
+ 2.インデント
+    タブは禁止
+    スペース4文字
+
+ 3.継承
+    virtual, override は必ず付ける
+    finalも必要な場合は必ず付ける
+
+ 4.コメント
+    クラス,構造体,関数,メンバ変数の前に必ず summary のコメントを付ける
+    処理の前にもコメントを付けて,何をしているのかをわかりやすくする
+    ファイルの最初に制作者名,内容,作成日,最終更新日を書く
+
+    例)
+        //
+        // 制作者:      〇〇 〇〇
+        // 内容:        プレイヤー処理
+        // 作成日:      2018/10/22
+        // 最終更新日:  2018/10/23  (初回の場合は空白)
+        //
+
+ 5.ソースファイル
+    ファイル名は1で説明した通り
+    拡張子
+        ヘッダファイル      .h
+        ソースファイル      .cpp
+        インラインファイル  .inl
+
+    処理の種類ごとにディレクトリを分ける
+    クラス名と同じにする
+
+ 6.namespace
+    クラス等は必ず namespace で囲む
+    namespace は
+        GFF::ディレクトリ名
+    のように付ける
+
+    例)
+        src/Hoge/Fuga.h の場合
+        GFF::Hoge
+
+ 7.禁止
+    タブ文字でのインデント
+    ヘッダファイルでの using namespace
+    namespace と同じクラス名
+    二行以上続けての空白行
+
+ 8.外部ファイル
+    画像やサウンド等の外部ファイルは Datas 以下に用途別にフォルダ分けして保存する
+    ファイル名は1バイト文字を使用し,英語にする
+
+    例)
+        botan   ×
+        Button  〇
+
+    ファイル名にスペースは入れずスネークケースで名前を付ける
+    単語の始めは必ず大文字
+
+    例)
+        Button Press    ×
+        Button_Press    〇
+
+ 9.バージョン管理
+    Githubを使用
+    クライアント側の指定はなし
+
+    共有するファイルは,変更,追加,削除,移動したもののみ
+    コミット時によく確認する
+
+    ブランチ
+        master ブランチはアルファ版等のみで使用
+        メインブランチは develop とする
+        作業用のブランチは feature 以下にそれぞれでブランチを作成して行う
+
+10.その他
+    中括弧{}は必ず左側にそろえる
+    例)
+        if (true)
+        {
+        }
+
+    できるだけヘッダファイルでの include を減らす
+
+    関数の定義同士の間は必ず一行開ける
