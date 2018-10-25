@@ -13,6 +13,7 @@
 #pragma comment(lib, "Input_d.lib")
 #pragma comment(lib, "Math_d.lib")
 #pragma comment(lib, "Utility_d.lib")
+#pragma comment(lib, "Audio_d.lib")
 
 #elif defined(_MSVC_LANG)
 
@@ -21,6 +22,7 @@
 #pragma comment(lib, "Input.lib")
 #pragma comment(lib, "Math.lib")
 #pragma comment(lib, "Utility.lib")
+#pragma comment(lib, "Audio.lib")
 
 #endif
 
@@ -29,9 +31,13 @@ extern "C"
     int Main(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow);
 }
 
-#define CREADXTKLIB \
+#ifndef CREA_DXTKLIB
+
+#define CREA_DXTKLIB \
 int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPWSTR lpCmdLine, _In_ int nCmdShow)\
 { Main(hInstance, hPrevInstance, lpCmdLine, nCmdShow); }
+
+#endif // !CREA_DXTKLIB
 
 /// <summary>
 /// ゲームの設定
@@ -59,6 +65,11 @@ namespace CreaDXTKLib
     /// 数学関係
     /// </summary>
     namespace Math { }
+
+    /// <summary>
+    /// サウンド関係
+    /// </summary>
+    namespace Audio { }
 
     /// <summary>
     /// 終了させる
