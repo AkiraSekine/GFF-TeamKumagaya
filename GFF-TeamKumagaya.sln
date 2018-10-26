@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27130.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GFF-TeamKumagaya", "GFF-TeamKumagaya.vcxproj", "{D24457B6-19EB-486B-A51F-11A2CAFF8CFF}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DirectXTKAudio_Desktop_2017_DXSDK", "..\DirectXTK-master\Audio\DirectXTKAudio_Desktop_2017_DXSDK.vcxproj", "{4F150A30-CECB-49D1-8283-6A3F57438CF5}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DirectXTKAudio_Desktop_2017_DXSDK", "DirectXTK-master\Audio\DirectXTKAudio_Desktop_2017_DXSDK.vcxproj", "{4F150A30-CECB-49D1-8283-6A3F57438CF5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
