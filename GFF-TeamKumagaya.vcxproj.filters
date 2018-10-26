@@ -23,6 +23,9 @@
     <Filter Include="src\Math">
       <UniqueIdentifier>{f310f236-fb7d-444c-b75a-092aa0c5d21a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Game\Character">
+      <UniqueIdentifier>{20a2cafc-a3af-43f3-86fc-a910b8e8d09a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc" />
@@ -54,6 +57,9 @@
     </ClInclude>
     <ClInclude Include="src\System\Equipment.h">
       <Filter>src\System</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\Character\ICharacter.h">
+      <Filter>src\Game\Character</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
