@@ -52,5 +52,8 @@
     <ClInclude Include="src\Scene\GameScene.h">
       <Filter>src\Scene</Filter>
     </ClInclude>
+    <ClInclude Include="src\System\Equipment.h">
+      <Filter>src\System</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

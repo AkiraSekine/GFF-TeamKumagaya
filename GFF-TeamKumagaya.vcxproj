@@ -185,6 +185,7 @@
   <ItemGroup>
     <ClInclude Include="src\Game\IEntity.h" />
     <ClInclude Include="src\Scene\GameScene.h" />
+    <ClInclude Include="src\System\Equipment.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="DirectXTK-master\Audio\DirectXTKAudio_Desktop_2017_DXSDK.vcxproj">
