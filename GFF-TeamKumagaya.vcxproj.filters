@@ -8,6 +8,21 @@
     <Filter Include="src">
       <UniqueIdentifier>{fe4eba74-9bd8-4185-a9fc-15154421117a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Game">
+      <UniqueIdentifier>{51fe6350-d0be-4547-bb89-c32ec1234bb2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Scene">
+      <UniqueIdentifier>{cd59e864-d00e-4f4a-84d5-ebaa3037322a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\UI">
+      <UniqueIdentifier>{c30adfc0-0d03-4e8a-8467-22ae4e4a3ff6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\System">
+      <UniqueIdentifier>{9fdc3e75-7c7f-412f-9c14-f70cbfbaca67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Math">
+      <UniqueIdentifier>{f310f236-fb7d-444c-b75a-092aa0c5d21a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc" />
@@ -26,5 +41,16 @@
     <ClCompile Include="src\Main.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Scene\GameScene.cpp">
+      <Filter>src\Scene</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Game\IEntity.h">
+      <Filter>src\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\GameScene.h">
+      <Filter>src\Scene</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
