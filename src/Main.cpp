@@ -1,24 +1,13 @@
 #include "CreaDXTKLib/CreaDXTKLib.h"
 #include "CreaDXTKLib/GameManager.h"
-#include "CreaDXTKLib/Scene.h"
+#include "Scene/GameScene.h"
 
-CREADXTKLIB
+CREA_DXTKLIB
 
 using namespace CreaDXTKLib;
-
-class Test : public Scene
-{
-public:
-
-    virtual void Update(float _elapsedTime) override
-    {
-    }
-    virtual void OnRender() override
-    {
-    }
-};
+using namespace GFF::Scene;
 
 void SetUp()
 {
-    SetStartScene<Test>();
+    SetStartScene<GameScene>();
 }
