@@ -1,9 +1,14 @@
 #pragma once
 
-#include "../Default/pch.h"
+#include "../DirectXTK/pch.h"
 
 #ifndef ABSTRACT
+
+/// <summary>
+/// 純粋仮想関数にする
+/// </summary>
 #define ABSTRACT = 0
+
 #endif // !ABSTRACT
 
 #if defined(_DEBUG) && defined(_MSVC_LANG)
@@ -43,6 +48,31 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
 /// ゲームの設定
 /// </summary>
 extern void SetUp();
+
+/// <summary>
+/// ゲーム終了時に呼ばれる関数ポインタ
+/// </summary>
+extern void(*EndFunction)();
+
+/// <summary>
+/// ウィンドウがアクティブ状態になった時に呼ばれる関数ポインタ
+/// </summary>
+extern void(*OnActive)();
+
+/// <summary>
+/// ウィンドウが非アクティブ状態になった時に呼ばれる関数ポインタ
+/// </summary>
+extern void(*OnInactive)();
+
+/// <summary>
+/// ウィンドウが最小化された時に呼ばれる関数ポインタ
+/// </summary>
+extern void(*OnMinimize)();
+
+/// <summary>
+/// ウィンドウが最小化から戻った時に呼ばれる関数ポインタ
+/// </summary>
+extern void(*OnReturnMinimize)();
 
 namespace CreaDXTKLib
 {
