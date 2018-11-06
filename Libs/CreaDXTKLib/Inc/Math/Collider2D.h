@@ -1,5 +1,6 @@
 #pragma once
 
+#include "../CreaDXTKLib/CreaDXTKLib.h"
 #include "Vector2.h"
 
 #include <vector>
@@ -32,9 +33,11 @@ namespace Math
         /// <summary>
         /// 形状
         /// </summary>
-        Shape m_shape;
+        Shape shape;
 
-        virtual ~Collider2D() { }
+        Collider2D();
+
+        virtual ~Collider2D();
 
         /// <summary>
         /// 当たっているかの取得
@@ -44,38 +47,44 @@ namespace Math
         /// <summary>
         /// 当たっているかの取得
         /// </summary>
+        /// <param name="_collider">対象のコライダー</param>
         /// <returns>当たった相手のコライダー</returns>
         virtual Collider2D* CheckCollision(Collider2D* _collider) const final;
 
         /// <summary>
         /// 判定対象の追加
         /// </summary>
-        /// <param name="_collider">対象</param>
+        /// <param name="_collider">対象のコライダー</param>
         virtual void AddTarget(Collider2D* _collider);
+
+        /// <summary>
+        /// 判定対象の削除
+        /// </summary>
+        /// <param name="_collider">対象のコライダー</param>
+        virtual void EraseTarget(Collider2D* _collider);
 
     protected:
 
         /// <summary>
         /// ターゲット
         /// </summary>
-        std::vector<Collider2D*> m_targets = std::vector<Collider2D*>();
+        std::vector<Collider2D*> m_targets;
 
         /// <summary>
         /// CircleColliderとの判定処理
         /// </summary>
         /// <param name="_target">ターゲット</param>
-        virtual Collider2D* CheckCircle(CircleCollider* _target) const = 0;
+        virtual Collider2D* CheckCircle(CircleCollider* _target) const ABSTRACT;
         /// <summary>
         /// BoxColliderとの判定処理
         /// </summary>
         /// <param name="_target">ターゲット</param>
-        virtual Collider2D* CheckBox(BoxCollider* _target) const = 0;
+        virtual Collider2D* CheckBox(BoxCollider* _target) const ABSTRACT;
         /// <summary>
         /// LineColliderとの判定処理
         /// </summary>
         /// <param name="_target">ターゲット</param>
-        virtual Collider2D* CheckLine(LineCollider* _target) const = 0;
-
+        virtual Collider2D* CheckLine(LineCollider* _target) const ABSTRACT;
     };
 
     /// <summary>
@@ -173,8 +182,6 @@ namespace Math
         /// <param name="_collider">対象</param>
         virtual void AddTarget(Collider2D* _collider) override;
 
-        void CalcCorners() const;
-
     private:
 
         Vector2* m_corners[numOfLines];
@@ -185,6 +192,8 @@ namespace Math
         virtual Collider2D* CheckLine(LineCollider* _target) const;
 
         bool IsInside(const Vector2& _pos) const;
+
+        void CalcCorners() const;
 
     };
 } // Math
