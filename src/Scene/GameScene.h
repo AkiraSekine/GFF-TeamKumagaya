@@ -20,12 +20,15 @@ namespace Scene
     class GameScene : public CreaDXTKLib::Scene
     {
     public:
+
         GameScene();
         ~GameScene();
+
         virtual void Update(float _elapsedTime) override;
         virtual void OnRender() override;
 
     private:
+
         GFF::Game::Character::Player m_player;
     };
 } // Scene

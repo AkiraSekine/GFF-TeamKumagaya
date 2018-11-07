@@ -26,6 +26,9 @@
     <Filter Include="src\Game\Character">
       <UniqueIdentifier>{20a2cafc-a3af-43f3-86fc-a910b8e8d09a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Utility">
+      <UniqueIdentifier>{fae640e3-67d8-4b72-bc2b-51f233756a35}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc" />
@@ -47,7 +50,13 @@
     <ClCompile Include="src\Scene\GameScene.cpp">
       <Filter>src\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="src\Utility\Random.cpp">
+      <Filter>src\Utility</Filter>
+    </ClCompile>
     <ClCompile Include="src\Game\Character\Player.cpp">
+      <Filter>src\Game\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\Character\Enemy.cpp">
       <Filter>src\Game\Character</Filter>
     </ClCompile>
   </ItemGroup>
@@ -64,8 +73,19 @@
     <ClInclude Include="src\Game\Character\ICharacter.h">
       <Filter>src\Game\Character</Filter>
     </ClInclude>
+    <ClInclude Include="src\Utility\Random.h">
+      <Filter>src\Utility</Filter>
+    </ClInclude>
     <ClInclude Include="src\Game\Character\Player.h">
       <Filter>src\Game\Character</Filter>
     </ClInclude>
+    <ClInclude Include="src\Game\Character\Enemy.h">
+      <Filter>src\Game\Character</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\Utility\Random.inl">
+      <Filter>src\Utility</Filter>
+    </None>
   </ItemGroup>
 </Project>
