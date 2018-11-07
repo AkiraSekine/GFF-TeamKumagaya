@@ -6,13 +6,10 @@
 //
 
 #include "Player.h"
-#include "Draw/Image.h"
 #include "Input/Input.h"
 #include "Math/Vector2.h"
-#include "Utility/Debug.h"
 
 using namespace CreaDXTKLib::Input;
-using namespace CreaDXTKLib::Draw;
 using namespace CreaDXTKLib::Math;
 
 namespace GFF
@@ -24,22 +21,21 @@ namespace Character
 
     void Player::Move(float _elapsedTime)
     {
-        _elapsedTime;
         // 入力を取得
         float inputRight = Inputs::Instance().GetValue(L"Right");
         float inputUp = Inputs::Instance().GetValue(L"Up");
         bool shot = (bool)Inputs::Instance().GetValue(L"Shot");
 
         //Aが押されていたら左へ、Dが押されていたら右へ画像を移動
-            Vector2 pos = Position();
-            pos += Vector2(100.0f, 0.0f) * _elapsedTime * inputRight;
-            pos += Vector2(0.0f, 100.0f) * _elapsedTime * inputUp;
-
-            //SPACEキーが押されたなら
-            if (shot)
-            {
-                Shoot();
-            }
+        Vector2 pos = Position();
+        pos += Vector2(100.0f, 0.0f) * _elapsedTime * inputRight;
+        pos += Vector2(0.0f, 100.0f) * _elapsedTime * inputUp;
+        
+        //SPACEキーが押されたなら
+        if (shot)
+        {
+            Shoot();
+        }
 
         Position(pos);
     }

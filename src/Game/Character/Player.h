@@ -8,8 +8,6 @@
 #pragma once
 
 #include "ICharacter.h"
-#include "Math/Vector2.h"
-#include "CreaDXTKLib/Object.h"
 
 namespace GFF
 {
@@ -23,10 +21,13 @@ namespace Character
 
     public:
 
-        virtual void Move(float _elapsedTime) override;
         virtual void Shoot() override;
         virtual void Start() override;
         virtual void Update(float _elapsedTime) override;
+
+    private:
+
+        virtual void Move(float _elapsedTime) override;
     };
 
 } // Character

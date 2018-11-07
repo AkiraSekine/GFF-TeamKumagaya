@@ -1,7 +1,6 @@
 #include "GameScene.h"
 #include "Draw/Image.h"
 #include "Input/Input.h"
-#include "../Game/Character/Player.h"
 
 using namespace CreaDXTKLib::Input;
 using namespace CreaDXTKLib::Draw;
@@ -22,13 +21,11 @@ namespace Scene
         Inputs::Instance().Add(L"Up", Keys::S, 1.0f, CheckMode::Press);
         Inputs::Instance().Add(L"Up", Keys::W, -1.0f, CheckMode::Press);
         Inputs::Instance().Add(L"Shot", Keys::Space, 1.0f, CheckMode::Down);
-            
-        Inputs::Instance().Add(L"Right", Keys::Right, 1.0f, CheckMode::Press);
-        Inputs::Instance().Add(L"Right", Keys::Left, -1.0f, CheckMode::Press);
 
         //Player用の画像の読み込み
-        Image::Instance().Load(L"data/images/prototype/Circle.png", L"Player");
+        Image::Instance().Load(L"Player", L"data/images/prototype/Circle.png");
 
+        //インスタンスの生成
         m_player = Player(L"Player",Vector2(0,0));
     }
 
@@ -36,7 +33,9 @@ namespace Scene
     {
         //Player: 島田竜之介
         // 入力設定の破棄
-        //Inputs::Instance().Erase(L"Right");
+        Inputs::Instance().Erase(L"Right");
+        Inputs::Instance().Erase(L"Up");
+        Inputs::Instance().Erase(L"Shot");
 
         // InputSceneが終了するので画像を破棄
         Image::Instance().Erase(L"Player");
