@@ -8,6 +8,7 @@
 #pragma once
 
 #include "CreaDXTKLib/Scene.h"
+#include "../Game/Character/Player.h"
 
 namespace GFF
 {
@@ -19,12 +20,13 @@ namespace Scene
     class GameScene : public CreaDXTKLib::Scene
     {
     public:
-
+        GameScene();
+        ~GameScene();
         virtual void Update(float _elapsedTime) override;
         virtual void OnRender() override;
 
     private:
-
+        GFF::Game::Character::Player m_player;
     };
 } // Scene
 } // GFF

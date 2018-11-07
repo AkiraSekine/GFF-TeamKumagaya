@@ -179,11 +179,13 @@
     <Manifest Include="settings.manifest" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Game\Character\Player.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Scene\GameScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Game\Character\ICharacter.h" />
+    <ClInclude Include="src\Game\Character\Player.h" />
     <ClInclude Include="src\Game\IEntity.h" />
     <ClInclude Include="src\Scene\GameScene.h" />
     <ClInclude Include="src\System\Equipment.h" />

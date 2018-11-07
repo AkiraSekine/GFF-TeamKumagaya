@@ -47,6 +47,9 @@
     <ClCompile Include="src\Scene\GameScene.cpp">
       <Filter>src\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="src\Game\Character\Player.cpp">
+      <Filter>src\Game\Character</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Game\IEntity.h">
@@ -59,6 +62,9 @@
       <Filter>src\System</Filter>
     </ClInclude>
     <ClInclude Include="src\Game\Character\ICharacter.h">
+      <Filter>src\Game\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\Character\Player.h">
       <Filter>src\Game\Character</Filter>
     </ClInclude>
   </ItemGroup>
