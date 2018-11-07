@@ -13,9 +13,11 @@ namespace Utility
         m_isInt(false),
         m_isNormal(true)
     {
+        // デフォルトの制限値を設定
         m_limit.floatLimit.min = 0.0f;
         m_limit.floatLimit.max = 100.0f;
 
+        // 分布生成器を作成
         m_generator.floatDist =
             uniform_real_distribution<>(m_limit.floatLimit.min, m_limit.floatLimit.max);
     }
@@ -24,9 +26,11 @@ namespace Utility
         m_randEngine(m_seedGen()),
         m_isInt(true)
     {
+        // 制限値を設定
         m_limit.intLimit.min = _min;
         m_limit.intLimit.max = _max;
 
+        // 分布生成器を作成
         m_generator.intDist = uniform_int_distribution<>(_min, _max);
     }
 
@@ -35,9 +39,11 @@ namespace Utility
         m_isInt(false),
         m_isNormal(true)
     {
+        // 制限値を設定
         m_limit.floatLimit.min = _min;
         m_limit.floatLimit.max = _max;
 
+        // 分布生成器を作成
         m_generator.floatDist = uniform_real_distribution<>(_min, _max);
     }
 
@@ -46,9 +52,11 @@ namespace Utility
         m_isInt(false),
         m_isNormal(true)
     {
+        // 制限値を設定
         m_limit.floatLimit.min = _min;
         m_limit.floatLimit.max = _max;
 
+        // 分布生成器を作成
         m_generator.normalDist = normal_distribution<>(_mean, _stdev);
     }
 } // Utility
