@@ -21,16 +21,20 @@ namespace Game
 
     void Item::SetBullet(const System::Bullet & _bullet)
     {
+        //値の受け取り
         bullet = _bullet;
     }
 
     void Item::Move(float _elapsTime)
     {
+        //定義
         const float speed = 100;
         Vector2 pos = Position();
 
+        //移動処理(画面左方向)
         pos.x -= speed * _elapsTime;
 
+        //変更の適用
         Position(pos);
     }
 }//Game

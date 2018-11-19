@@ -21,13 +21,24 @@ namespace Game
     public:
     
         System::Bullet bullet;
-
+        /// <summary>
+        /// アップデート処理
+        /// </summary>
         virtual void Update(float _elapsTime) override;
+        /// <summary>
+        /// Bulletのセット
+        /// </summary>
         void SetBullet(const System::Bullet& _bullet);
 
     private:
         
+        /// <summary>
+        /// 移動処理
+        /// </summary>
         void Move(float _elapsTime);
+        /// <summary>
+        /// 開始処理
+        /// </summary>
         virtual void Start() override;
     };
 
