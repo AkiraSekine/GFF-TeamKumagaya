@@ -2,7 +2,7 @@
 // 制作者:     関根 明良
 // 内容:       装備データ
 // 作成日:     2018/10/26
-// 最終更新日:
+// 最終更新日: 2018/11/19
 //
 
 #pragma once
@@ -16,6 +16,20 @@ namespace System
     /// </summary>
     struct Bullet
     {
+        enum struct Kind
+        {
+            mm9,    // HG, SMG
+            mm5p56, // AR
+            mm7p62, // MG
+            GA12,   // SG
+            mm12p7  // SR
+        };
+
+        /// <summary>
+        /// 弾の種類
+        /// </summary>
+        Kind kind;
+
         /// <summary>
         /// 威力
         /// </summary>
@@ -39,6 +53,21 @@ namespace System
     /// </summary>
     struct Gun
     {
+        enum struct Kind
+        {
+            HG,
+            SMG,
+            AR,
+            MG,
+            SG,
+            SR
+        };
+
+        /// <summary>
+        /// 銃の種類
+        /// </summary>
+        Kind kind;
+
         /// <summary>
         /// 移動速度
         /// </summary>

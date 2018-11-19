@@ -179,6 +179,7 @@
     <Manifest Include="settings.manifest" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Game\BulletObject.cpp" />
     <ClCompile Include="src\Game\Character\Enemy.cpp" />
     <ClCompile Include="src\Game\Character\Player.cpp" />
     <ClCompile Include="src\Main.cpp" />
@@ -186,6 +187,7 @@
     <ClCompile Include="src\Utility\Random.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Game\BulletObject.h" />
     <ClInclude Include="src\Game\Character\Enemy.h" />
     <ClInclude Include="src\Game\Character\ICharacter.h" />
     <ClInclude Include="src\Game\Character\Player.h" />
