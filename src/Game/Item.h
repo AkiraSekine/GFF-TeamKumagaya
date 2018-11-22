@@ -14,17 +14,25 @@ namespace GFF
 {
 namespace Game
 {
+    /// <summary>
+    /// アイテムクラス
+    /// </summary>
     class Item : public IEntity
     {
         OBJECT2D_PARENT(Item, IEntity);
 
     public:
     
+        /// <summary>
+        /// 銃弾情報
+        /// </summary>
         System::Bullet bullet;
+
         /// <summary>
         /// アップデート処理
         /// </summary>
         virtual void Update(float _elapsTime) override;
+
         /// <summary>
         /// Bulletのセット
         /// </summary>
@@ -36,6 +44,7 @@ namespace Game
         /// 移動処理
         /// </summary>
         void Move(float _elapsTime);
+
         /// <summary>
         /// 開始処理
         /// </summary>
