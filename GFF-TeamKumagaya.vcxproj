@@ -182,6 +182,7 @@
     <ClCompile Include="src\Game\BulletObject.cpp" />
     <ClCompile Include="src\Game\Character\Enemy.cpp" />
     <ClCompile Include="src\Game\Character\Player.cpp" />
+    <ClCompile Include="src\Game\IEntity.cpp" />
     <ClCompile Include="src\Game\Item.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Scene\GameScene.cpp" />

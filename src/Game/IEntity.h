@@ -30,7 +30,22 @@ namespace Game
 
     public:
 
-        CreaDXTKLib::Math::Collider2D* collider;
+        /// <summary>
+        /// コライダー
+        /// </summary>
+        CreaDXTKLib::Math::Collider2D* collider = nullptr;
+
+        /// <summary>
+        /// ターゲットコライダーの追加
+        /// </summary>
+        /// <param name="_target">ターゲットコライダー</param>
+        virtual void AddColliderTarget(CreaDXTKLib::Math::Collider2D* _target) final;
+
+        /// <summary>
+        /// ターゲットコライダーを削除
+        /// </summary>
+        /// <param name="_target">ターゲットコライダー</param>
+        virtual void EraseColliderTarget(CreaDXTKLib::Math::Collider2D* _target) final;
 
     private:
 
