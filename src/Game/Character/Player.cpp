@@ -89,10 +89,9 @@ namespace Character
         float inputRight = Inputs::Instance().GetValue(L"Right");
         float inputUp = Inputs::Instance().GetValue(L"Up");
 
-        //Aが押されていたら左へ、Dが押されていたら右へ画像を移動
+        // プレイヤーを移動させる
         Vector2 pos = Position();
-        pos += Vector2(100.0f, 0.0f) * _elapsedTime * inputRight;
-        pos += Vector2(0.0f, 100.0f) * _elapsedTime * inputUp;
+        pos += Vector2(inputRight, inputUp) * gun.moveSpeed * _elapsedTime;
 
         Position(pos);
     }
