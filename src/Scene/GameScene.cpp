@@ -1,12 +1,25 @@
+//
+// 制作者:     関根 明良
+// 内容:       ゲームシーン
+// 作成日:     2018/10/26
+// 最終更新日: 2018/11/27
+//
+
 #include "GameScene.h"
+
 #include "Draw/Image.h"
 #include "Input/Input.h"
+#include "CreaDXTKLib/CreaDXTKLib.h"
 
+#include "../System/IOData.h"
+
+using namespace CreaDXTKLib;
 using namespace CreaDXTKLib::Input;
 using namespace CreaDXTKLib::Draw;
 using namespace CreaDXTKLib::Math;
 
 using namespace GFF::Game::Character;
+using namespace GFF::System;
 
 namespace GFF
 {
@@ -27,6 +40,13 @@ namespace Scene
 
         //インスタンスの生成
         m_player = Player(L"Player",Vector2(0,0));
+
+        // 装備のパラメータを読み込む
+        if (!IOData::Instance().EquipmentLoad(m_equipmentDatas))
+        {
+            // 読み込みに失敗したらゲームを終了する
+            ExitGame();
+        }
     }
 
     GameScene::~GameScene()

@@ -2,7 +2,7 @@
 // 制作者:     関根 明良
 // 内容:       装備データ
 // 作成日:     2018/10/26
-// 最終更新日: 2018/11/19
+// 最終更新日: 2018/11/27
 //
 
 #pragma once
@@ -92,6 +92,30 @@ namespace System
         /// 使用中の銃弾
         /// </summary>
         Bullet bullet;
+    };
+
+    /// <summary>
+    /// 銃弾の種類数
+    /// </summary>
+    static const int NumOfBullets = 5;
+    /// <summary>
+    /// 銃の種類数
+    /// </summary>
+    static const int NumOfGuns = 6;
+
+    /// <summary>
+    /// 銃弾と銃のパラメータ
+    /// </summary>
+    struct EquipmentDatas
+    {
+        /// <summary>
+        /// 銃弾データ
+        /// </summary>
+        Bullet bulletData[NumOfBullets];
+        /// <summary>
+        /// 銃データ
+        /// </summary>
+        Gun gunData[NumOfGuns];
     };
 } // System
 } // GFF
