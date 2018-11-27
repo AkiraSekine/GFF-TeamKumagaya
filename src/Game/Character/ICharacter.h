@@ -32,11 +32,6 @@ namespace Character
         float HP;
 
         /// <summary>
-        /// ’e‚Ì”­Ëˆ—
-        /// </summary>
-        virtual void Shoot() ABSTRACT;
-
-        /// <summary>
         /// e‚Ìî•ñ‚ğæ“¾
         /// </summary>
         virtual inline System::Gun GetGunData() const final
@@ -55,6 +50,12 @@ namespace Character
         /// –hŒä—Í
         /// </summary>
         float m_defence;
+
+        /// <summary>
+        /// ’e‚Ì”­Ëˆ—
+        /// </summary>
+        /// <param name="_elapsedTime">‘OƒtƒŒ[ƒ€‚©‚ç‚ÌŒo‰ßŠÔ</param>
+        virtual void Shoot(float _elapsedTime) ABSTRACT;
 
         /// <summary>
         /// ˆÚ“®ˆ—

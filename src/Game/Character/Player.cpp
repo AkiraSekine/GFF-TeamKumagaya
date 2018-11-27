@@ -6,8 +6,11 @@
 //
 
 #include "Player.h"
+
 #include "Input/Input.h"
 #include "Math/Vector2.h"
+
+#include "../BulletObject.h"
 
 using namespace CreaDXTKLib::Input;
 using namespace CreaDXTKLib::Math;
@@ -18,42 +21,94 @@ namespace Game
 {
 namespace Character
 {
+    GFF::System::Gun Player::gun;
+
+    void Player::Update(float _elapsedTime)
+    {
+        bool shot = (bool)Inputs::Instance().GetValue(L"Shot");
+
+        Move(_elapsedTime);
+        
+        // ”­ËƒL[‚ª‰Ÿ‚³‚ê‚½‚çe’e‚ğ”­Ë‚·‚é
+        if (shot)
+        {
+            Shoot(_elapsedTime);
+        }
+
+        if (m_gun.isContinuous && !shot)
+        {
+            m_shotTime = 0.0f;
+        }
+
+        int bulletCount = 0;
+
+        // e’e‚ÌXVˆ—
+        for (BulletObject* bullet : m_bullets)
+        {
+            bullet->Update(_elapsedTime);
+
+            // e’e‚ª”jŠü‚³‚ê‚é‚×‚«ó‘Ô‚È‚ç”jŠü‚·‚é
+            if (bullet->isDestroy)
+            {
+                delete bullet;
+
+                m_bullets.erase(m_bullets.begin() + bulletCount);
+            }
+
+            bulletCount++;
+        }
+    }
+
+    void Player::Shoot(float _elapsedTime)
+    {
+        // ˜AË‰Â”\‚©
+        if (m_gun.isContinuous)
+        {
+            // ˜AËŠÔŠu‚ğŒvZ
+            const float fireTime = 1.0f / m_gun.fireSpeed / 60.0f;
+
+            m_shotTime += _elapsedTime;
+
+            // ˜AËŠÔŠu‚ğ‰ß‚¬‚Ä‚¢‚½‚çe’e‚ğ¶¬
+            if (m_shotTime >= fireTime)
+            {
+                m_bullets.push_back(new BulletObject());
+
+                m_shotTime -= fireTime;
+            }
+        }
+        else
+        {
+            m_bullets.push_back(new BulletObject());
+        }
+    }
 
     void Player::Move(float _elapsedTime)
     {
         // “ü—Í‚ğæ“¾
         float inputRight = Inputs::Instance().GetValue(L"Right");
         float inputUp = Inputs::Instance().GetValue(L"Up");
-        bool shot = (bool)Inputs::Instance().GetValue(L"Shot");
 
-        //A‚ª‰Ÿ‚³‚ê‚Ä‚¢‚½‚ç¶‚ÖAD‚ª‰Ÿ‚³‚ê‚Ä‚¢‚½‚ç‰E‚Ö‰æ‘œ‚ğˆÚ“®
+        // ƒvƒŒƒCƒ„[‚ğˆÚ“®‚³‚¹‚é
         Vector2 pos = Position();
-        pos += Vector2(100.0f, 0.0f) * _elapsedTime * inputRight;
-        pos += Vector2(0.0f, 100.0f) * _elapsedTime * inputUp;
-        
-        //SPACEƒL[‚ª‰Ÿ‚³‚ê‚½‚È‚ç
-        if (shot)
-        {
-            Shoot();
-        }
+        pos += Vector2(inputRight, inputUp) * gun.moveSpeed * _elapsedTime;
 
         Position(pos);
-    }
-
-    void Player::Shoot()
-    {
     }
 
     void Player::Start()
     {
     }
 
-    void Player::Update(float _elapsedTime)
+    void Player::OnDestroy()
     {
-        Move(_elapsedTime);
+        for (BulletObject* bullet : m_bullets)
+        {
+            delete bullet;
+        }
+
+        m_bullets.clear();
     }
-
-
 } // Character
 } // Game
 } // GFF
