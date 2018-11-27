@@ -33,7 +33,17 @@ namespace Scene
         Inputs::Instance().Add(L"Right", Keys::A, -1.0f, CheckMode::Press);
         Inputs::Instance().Add(L"Up", Keys::S, 1.0f, CheckMode::Press);
         Inputs::Instance().Add(L"Up", Keys::W, -1.0f, CheckMode::Press);
-        Inputs::Instance().Add(L"Shot", Keys::Space, 1.0f, CheckMode::Down);
+
+        // 発射入力の設定
+        // プレイヤーの銃が連射可能なら押してる間、不可能なら押した瞬間を設定
+        if (Player::gun.isContinuous)
+        {
+            Inputs::Instance().Add(L"Shot", Keys::Space, 1.0f, CheckMode::Press);
+        }
+        else
+        {
+            Inputs::Instance().Add(L"Shot", Keys::Space, 1.0f, CheckMode::Down);
+        }
 
         //Player用の画像の読み込み
         Image::Instance().Load(L"Player", L"data/images/prototype/Circle.png");

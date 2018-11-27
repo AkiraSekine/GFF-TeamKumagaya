@@ -9,10 +9,16 @@
 
 #include "ICharacter.h"
 
+#include <vector>
+
+#include "../../System/Equipment.h"
+
 namespace GFF
 {
  namespace Game
 {
+     class BulletObject;
+
 namespace Character
 {
     /// <summary>
@@ -25,9 +31,9 @@ namespace Character
     public:
 
         /// <summary>
-        /// 発射処理
+        /// 銃データ
         /// </summary>
-        virtual void Shoot() override;
+        static GFF::System::Gun gun;
 
         /// <summary>
         /// 更新処理
@@ -38,7 +44,23 @@ namespace Character
     private:
 
         /// <summary>
-        /// 
+        /// 銃弾配列
+        /// </summary>
+        std::vector<BulletObject*> m_bullets;
+
+        /// <summary>
+        /// 連射間隔の計測
+        /// </summary>
+        float m_shotTime = 0;
+
+        /// <summary>
+        /// 発射処理
+        /// </summary>
+        /// <param name="_elapsedTime">前フレームからの経過時間</param>
+        virtual void Shoot(float _elapsedTime) override;
+
+        /// <summary>
+        /// 移動処理
         /// </summary>
         /// <param name="_elapsedTime">前フレームからの経過時間</param>
         virtual void Move(float _elapsedTime) override;
@@ -47,6 +69,11 @@ namespace Character
         /// 開始処理
         /// </summary>
         virtual void Start() override;
+
+        /// <summary>
+        /// 終了処理
+        /// </summary>
+        virtual void OnDestroy() override;
     };
 
 } // Character
