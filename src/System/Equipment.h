@@ -89,6 +89,10 @@ namespace System
         /// </summary>
         bool isContinuous;
         /// <summary>
+        /// マガジン容量
+        /// </summary>
+        size_t magazineSize;
+        /// <summary>
         /// 使用中の銃弾
         /// </summary>
         Bullet bullet;
