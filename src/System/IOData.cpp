@@ -51,7 +51,8 @@ namespace System
             file.read((char*)&_equipmentDatas.gunData[i].fireSpeed, sizeof(float));
             file.read((char*)&_equipmentDatas.gunData[i].reloadTime, sizeof(float));
             file.read((char*)&_equipmentDatas.gunData[i].accuracy, sizeof(float));
-            file.read((char*)&_equipmentDatas.gunData[i].isContinuous, sizeof(float));
+            file.read((char*)&_equipmentDatas.gunData[i].isContinuous, sizeof(bool));
+            file.read((char*)&_equipmentDatas.gunData[i].magazineSize, sizeof(size_t));
         }
 
         // ƒtƒ@ƒCƒ‹‚ð•Â‚¶‚é
