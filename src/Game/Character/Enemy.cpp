@@ -21,16 +21,10 @@ namespace Game
 {
 namespace Character
 {
-    Player* Enemy::m_player;
 
     void Enemy::Update(float _elapsedTime)
     {
         Move(_elapsedTime);
-    }
-
-    void Enemy::SetPlayer(Player * _player)
-    {
-        m_player = _player;
     }
 
     void Enemy::Move(float _elapsedTime)
@@ -46,6 +40,11 @@ namespace Character
     void Enemy::Start()
     {
         
+    }
+
+    void Enemy::Shoot(float _elapsedTime)
+    {
+        _elapsedTime;
     }
 
 } // Character
