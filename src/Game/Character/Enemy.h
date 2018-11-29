@@ -59,11 +59,6 @@ namespace Character
         virtual void Start() override;
 
     private:
-
-        /// <summary>
-        /// ƒvƒŒƒCƒ„[î•ñ
-        /// </summary>
-        static Player* m_player;
     };
 } // Character
 } // Game

@@ -182,6 +182,7 @@
     <ClCompile Include="src\Game\BulletObject.cpp" />
     <ClCompile Include="src\Game\Character\Enemy.cpp" />
     <ClCompile Include="src\Game\Character\Player.cpp" />
+    <ClCompile Include="src\Game\EnemyManager.cpp" />
     <ClCompile Include="src\Game\IEntity.cpp" />
     <ClCompile Include="src\Game\Item.cpp" />
     <ClCompile Include="src\Main.cpp" />
@@ -193,6 +194,7 @@
     <ClInclude Include="src\Game\Character\Enemy.h" />
     <ClInclude Include="src\Game\Character\ICharacter.h" />
     <ClInclude Include="src\Game\Character\Player.h" />
+    <ClInclude Include="src\Game\EnemyManager.h" />
     <ClInclude Include="src\Game\IEntity.h" />
     <ClInclude Include="src\Game\Item.h" />
     <ClInclude Include="src\Scene\GameScene.h" />
