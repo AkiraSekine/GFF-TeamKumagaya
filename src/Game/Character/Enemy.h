@@ -39,12 +39,6 @@ namespace Character
         /// <param name="_elapsedTime">前フレームからの経過時間</param>
         virtual void Update(float _elapsedTime) override;
 
-        /// <summary>
-        /// プレイヤーを設定
-        /// </summary>
-        /// <param name="_player">プレイヤー</param>
-        static void SetPlayer(Player* _player);
-
     protected:
 
         /// <summary>
@@ -59,6 +53,12 @@ namespace Character
         virtual void Start() override;
 
     private:
+
+        /// <summary>
+        /// 発射処理
+        /// </summary>
+        /// <param name="_elapsedTime">前フレームからの経過時間</param>
+        virtual void Shoot(float _elapsedTime) override;
     };
 } // Character
 } // Game

@@ -7,6 +7,9 @@
 
 #include "EnemyManager.h"
 
+#include "Character/Player.h"
+#include "Character/Enemy.h"
+
 namespace GFF
 {
 namespace Game
@@ -18,16 +21,21 @@ namespace Game
     }
     void EnemyManager::Update(float _elapsedTime)
     {
-        //乱数値が条件を満たしていたなら
+        //乱数の値が0だったなら
         if (!m_rand.GetRand<int>())
         {
             //敵をスポーンする
             Spawn();
         }
     }
+    void EnemyManager::SetPlayer(Character::Player & _player)
+    {
+        //値の受け取り
+        m_player = &_player;
+    }
     void EnemyManager::Spawn()
     {
-
+        m_enemys.push_back(new Character::Enemy());
     }
 }//Game
 }//GFF

@@ -9,13 +9,18 @@
 
 #include <vector>
 
-#include "../Game/Character/Enemy.h"
 #include "../Utility/Random.h"
 
 namespace GFF
 {
 namespace Game
 {
+    namespace Character 
+    {
+        class Player;
+        class Enemy;
+    }
+
     /// <summary>
     /// 敵出現
     /// </summary>
@@ -33,12 +38,23 @@ namespace Game
         /// <param name="_elapsTime">前フレームからの経過時間</param>
         void Update(float _elapsedTime);
 
+        /// <summary>
+        /// プレイヤーを設定
+        /// </summary>
+        /// <param name="_player">プレイヤー</param>
+        void SetPlayer(Character::Player& _player);
+
     private:
 
         /// <summary>
         /// 敵情報
         /// </summary>
-        std::vector<Character::Enemy> m_enemy;
+        std::vector<Character::Enemy*> m_enemys;
+
+        /// <summary>
+        /// プレイヤー情報
+        /// </summary>
+        Character::Player* m_player;
 
         /// <summary>
         /// ランダム変数

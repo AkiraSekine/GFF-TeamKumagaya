@@ -1,12 +1,25 @@
+//
+// 制作者:     関根 明良
+// 内容:       ゲームシーン
+// 作成日:     2018/10/26
+// 最終更新日: 2018/11/27
+//
+
 #include "GameScene.h"
+
 #include "Draw/Image.h"
 #include "Input/Input.h"
+#include "CreaDXTKLib/CreaDXTKLib.h"
 
+#include "../System/IOData.h"
+
+using namespace CreaDXTKLib;
 using namespace CreaDXTKLib::Input;
 using namespace CreaDXTKLib::Draw;
 using namespace CreaDXTKLib::Math;
 
 using namespace GFF::Game::Character;
+using namespace GFF::System;
 
 namespace GFF
 {
@@ -20,13 +33,30 @@ namespace Scene
         Inputs::Instance().Add(L"Right", Keys::A, -1.0f, CheckMode::Press);
         Inputs::Instance().Add(L"Up", Keys::S, 1.0f, CheckMode::Press);
         Inputs::Instance().Add(L"Up", Keys::W, -1.0f, CheckMode::Press);
-        Inputs::Instance().Add(L"Shot", Keys::Space, 1.0f, CheckMode::Down);
+
+        // 発射入力の設定
+        // プレイヤーの銃が連射可能なら押してる間、不可能なら押した瞬間を設定
+        if (Player::gun.isContinuous)
+        {
+            Inputs::Instance().Add(L"Shot", Keys::Space, 1.0f, CheckMode::Press);
+        }
+        else
+        {
+            Inputs::Instance().Add(L"Shot", Keys::Space, 1.0f, CheckMode::Down);
+        }
 
         //Player用の画像の読み込み
         Image::Instance().Load(L"Player", L"data/images/prototype/Circle.png");
 
         //インスタンスの生成
         m_player = Player(L"Player",Vector2(0,0));
+
+        // 装備のパラメータを読み込む
+        if (!IOData::Instance().EquipmentLoad(m_equipmentDatas))
+        {
+            // 読み込みに失敗したらゲームを終了する
+            ExitGame();
+        }
     }
 
     GameScene::~GameScene()

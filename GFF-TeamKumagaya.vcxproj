@@ -187,6 +187,7 @@
     <ClCompile Include="src\Game\Item.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Scene\GameScene.cpp" />
+    <ClCompile Include="src\System\IOData.cpp" />
     <ClCompile Include="src\Utility\Random.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -198,6 +199,7 @@
     <ClInclude Include="src\Game\IEntity.h" />
     <ClInclude Include="src\Game\Item.h" />
     <ClInclude Include="src\Scene\GameScene.h" />
+    <ClInclude Include="src\System\IOData.h" />
     <ClInclude Include="src\System\Equipment.h" />
     <ClInclude Include="src\Utility\Random.h" />
   </ItemGroup>
