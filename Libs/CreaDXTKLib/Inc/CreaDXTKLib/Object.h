@@ -77,8 +77,6 @@ namespace CreaDXTKLib
         /// </summary>
         std::wstring m_objectName;
 
-        std::wstring m_imageHandle;
-
         /// <summary>
         /// ŠJnˆ—
         /// </summary>
@@ -102,6 +100,8 @@ namespace CreaDXTKLib
     private:
 
         bool m_isActive = true;
+
+        std::wstring m_imageHandle;
 
         bool CheckParentIsActive() const;
     };
