@@ -190,7 +190,6 @@
     <ClCompile Include="src\Scene\GameScene.cpp" />
     <ClCompile Include="src\System\IOData.cpp" />
     <ClCompile Include="src\UI\Button.cpp" />
-    <ClCompile Include="src\Utility\Random.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Game\BulletObject.h" />
@@ -205,15 +204,11 @@
     <ClInclude Include="src\System\IOData.h" />
     <ClInclude Include="src\System\Equipment.h" />
     <ClInclude Include="src\UI\Button.h" />
-    <ClInclude Include="src\Utility\Random.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="DirectXTK-master\Audio\DirectXTKAudio_Desktop_2017_DXSDK.vcxproj">
       <Project>{4f150a30-cecb-49d1-8283-6a3f57438cf5}</Project>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="src\Utility\Random.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

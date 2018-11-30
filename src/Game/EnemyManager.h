@@ -9,7 +9,7 @@
 
 #include <vector>
 
-#include "../Utility/Random.h"
+#include "Utility/Random.h"
 
 namespace GFF
 {
@@ -59,7 +59,7 @@ namespace Game
         /// <summary>
         /// ƒ‰ƒ“ƒ_ƒ€•Ï”
         /// </summary>
-        Utility::Random m_rand;
+        CreaDXTKLib::Utility::Random m_rand;
 
         /// <summary>
         /// “G‚ÌoŒ»
