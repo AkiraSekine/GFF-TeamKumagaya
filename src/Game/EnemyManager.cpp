@@ -7,22 +7,27 @@
 
 #include "EnemyManager.h"
 
+#include "Utility/Random.h"
+
 #include "Character/Player.h"
 #include "Character/Enemy.h"
+
+using namespace CreaDXTKLib::Utility;
 
 namespace GFF
 {
 namespace Game
 {
-    EnemyManager::EnemyManager()
+    EnemyManager::EnemyManager() :
+        m_rand(Random(0, 99))
     {
-        //乱数の取得
-        m_rand = Utility::Random(0, 99);
     }
     void EnemyManager::Update(float _elapsedTime)
     {
+        _elapsedTime;
+
         //乱数の値が0だったなら
-        if (!m_rand.GetRand<int>())
+        if (!m_rand.GetInt())
         {
             //敵をスポーンする
             Spawn();

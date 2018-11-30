@@ -22,6 +22,7 @@ namespace CreaDXTKLib
             const Math::Vector2& _scale = Math::Vector2::one,
             Math::Transform2D* _parent = nullptr,
             const std::wstring& _objectName = L"Object");
+        /// <param name="_imageName">画像のハンドル名</param>
         /// <param name="_transform">Transform2D</param>
         /// <param name="_parent">親transform2D</param>
         /// <param name="_objectName">オブジェクト名</param>
@@ -58,6 +59,18 @@ namespace CreaDXTKLib
         virtual void SetActive(const bool& _isActive) final;
 
         /// <summary>
+        /// 画像サイズを取得
+        /// </summary>
+        /// <returns>画像サイズ</returns>
+        virtual Math::Vector2 GetImageSize() const final;
+
+        /// <summary>
+        /// 画像ハンドルを取得
+        /// </summary>
+        /// <returns>画像ハンドル</returns>
+        virtual std::wstring GetImageHandle() const final;
+
+        /// <summary>
         /// オブジェクト名を取得
         /// </summary>
         /// <returns>オブジェクト名</returns>
@@ -76,8 +89,6 @@ namespace CreaDXTKLib
         /// オブジェクト名
         /// </summary>
         std::wstring m_objectName;
-
-        std::wstring m_imageHandle;
 
         /// <summary>
         /// 開始処理
@@ -102,6 +113,8 @@ namespace CreaDXTKLib
     private:
 
         bool m_isActive = true;
+
+        std::wstring m_imageHandle;
 
         bool CheckParentIsActive() const;
     };

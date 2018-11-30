@@ -50,9 +50,6 @@
     <ClCompile Include="src\Scene\GameScene.cpp">
       <Filter>src\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="src\Utility\Random.cpp">
-      <Filter>src\Utility</Filter>
-    </ClCompile>
     <ClCompile Include="src\Game\Character\Player.cpp">
       <Filter>src\Game\Character</Filter>
     </ClCompile>
@@ -77,6 +74,7 @@
     <ClCompile Include="src\Math\Math.inl">
       <Filter>src\Math</Filter>
     </ClCompile>
+    <ClCompile Include="src\System\IOData.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Game\IEntity.h">
@@ -90,9 +88,6 @@
     </ClInclude>
     <ClInclude Include="src\Game\Character\ICharacter.h">
       <Filter>src\Game\Character</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Utility\Random.h">
-      <Filter>src\Utility</Filter>
     </ClInclude>
     <ClInclude Include="src\Game\Character\Player.h">
       <Filter>src\Game\Character</Filter>
@@ -115,10 +110,6 @@
     <ClInclude Include="src\Math\Math.h">
       <Filter>src\Math</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="src\Utility\Random.inl">
-      <Filter>src\Utility</Filter>
-    </None>
+    <ClInclude Include="src\System\IOData.h" />
   </ItemGroup>
 </Project>
