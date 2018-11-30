@@ -58,7 +58,7 @@ namespace UI
         Vector2 mousePos = CreaDXTKLib::Input::Mouse::Instance().Position();
 
         // 画像サイズを取得
-        Vector2 imageSize = GetImageSize(m_imageHandle) * 0.5f;
+        Vector2 imageSize = GetImageSize() * 0.5f;
 
         // 中心座標を取得
         Vector2 pos = Position();
