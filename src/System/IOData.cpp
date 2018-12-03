@@ -15,6 +15,7 @@
 
 using namespace std;
 using namespace CreaDXTKLib::Utility;
+using namespace CreaDXTKLib::Math;
 
 namespace GFF
 {
@@ -48,11 +49,12 @@ namespace System
         {
             file.read((char*)&_equipmentDatas.gunData[i].kind, sizeof(Gun::Kind));
             file.read((char*)&_equipmentDatas.gunData[i].moveSpeed, sizeof(float));
-            file.read((char*)&_equipmentDatas.gunData[i].fireSpeed, sizeof(float));
+            file.read((char*)&_equipmentDatas.gunData[i].fireSpeed, sizeof(int));
             file.read((char*)&_equipmentDatas.gunData[i].reloadTime, sizeof(float));
             file.read((char*)&_equipmentDatas.gunData[i].accuracy, sizeof(float));
             file.read((char*)&_equipmentDatas.gunData[i].isContinuous, sizeof(bool));
             file.read((char*)&_equipmentDatas.gunData[i].magazineSize, sizeof(size_t));
+            file.read((char*)&_equipmentDatas.gunData[i].corePos, sizeof(Vector2));
         }
 
         // ƒtƒ@ƒCƒ‹‚ð•Â‚¶‚é

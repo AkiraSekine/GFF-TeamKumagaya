@@ -1,0 +1,29 @@
+ParamGenerator.exe
+
+このディレクトリでコンソールを開き
+ParamGenerator.exeを実行
+
+実行時に引数として
+--SET
+--SHOW
+--CREATE
+--HELP
+のいずれかを送ることでそれぞれの機能を使うことができる
+全て小文字であれば同じコマンドを使うことができる
+
+値
+
+Bullet
+    Power           威力 (実数)
+    Recoil          反動 (実数)
+    Move speed      弾速 (実数)
+    Distance        射程距離 (実数)
+
+Gun
+    Move speed      移動速度 (実数)
+    Fire speed      連射速度 (整数 1分間の発射数)
+    Reload time     リロード時間 (秒)
+    Accuracy        精度 (実数)
+    Is continuous   連射可能か (1か0)
+    Magazine size   マガジンサイズ (整数)
+    Core position   コアの中心座標 (実数 2値)
