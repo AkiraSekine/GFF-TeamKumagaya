@@ -77,7 +77,7 @@ namespace System
         /// <summary>
         /// 連射速度
         /// </summary>
-        float fireSpeed;
+        int fireSpeed;
         /// <summary>
         /// リロード時間
         /// </summary>
