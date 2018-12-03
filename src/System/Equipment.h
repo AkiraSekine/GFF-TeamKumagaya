@@ -7,6 +7,8 @@
 
 #pragma once
 
+#include "Math/Vector2.h"
+
 namespace GFF
 {
 namespace System
@@ -92,6 +94,10 @@ namespace System
         /// マガジン容量
         /// </summary>
         size_t magazineSize;
+        /// <summary>
+        /// コアの中心座標
+        /// </summary>
+        CreaDXTKLib::Math::Vector2 corePos;
         /// <summary>
         /// 使用中の銃弾
         /// </summary>
