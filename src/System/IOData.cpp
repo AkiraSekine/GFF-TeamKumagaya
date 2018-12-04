@@ -25,7 +25,7 @@ namespace System
     {
         ifstream file;
         // データファイルを開く
-        file.open("./data/GameDatas/EquimentParamater.dat", ios::in | ios::binary);
+        file.open("./data/GameDatas/EquipmentParamater.dat", ios::in | ios::binary);
 
         // 開けなかったら終了
         if (!file)

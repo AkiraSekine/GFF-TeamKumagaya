@@ -34,6 +34,17 @@ namespace Scene
         Inputs::Instance().Add(L"Up", Keys::S, 1.0f, CheckMode::Press);
         Inputs::Instance().Add(L"Up", Keys::W, -1.0f, CheckMode::Press);
 
+        // 装備のパラメータを読み込む
+        if (!IOData::Instance().EquipmentLoad(m_equipmentDatas))
+        {
+            // 読み込みに失敗したらゲームを終了する
+            ExitGame();
+        }
+
+        // (仮)銃と弾を設定
+        Player::gun = m_equipmentDatas.gunData[(int)Gun::Kind::HG];
+        Player::gun.bullet = m_equipmentDatas.bulletData[(int)Bullet::Kind::mm9];
+
         // 発射入力の設定
         // プレイヤーの銃が連射可能なら押してる間、不可能なら押した瞬間を設定
         if (Player::gun.isContinuous)
@@ -45,18 +56,12 @@ namespace Scene
             Inputs::Instance().Add(L"Shot", Keys::Space, 1.0f, CheckMode::Down);
         }
 
-        //Player用の画像の読み込み
+        // 画像の読み込み
         Image::Instance().Load(L"Player", L"data/images/prototype/Circle.png");
+        Image::Instance().Load(L"Dot", L"data/images/prototype/Dot.jpg");
 
         //インスタンスの生成
         m_player = Player(L"Player",Vector2(0,0));
-
-        // 装備のパラメータを読み込む
-        if (!IOData::Instance().EquipmentLoad(m_equipmentDatas))
-        {
-            // 読み込みに失敗したらゲームを終了する
-            ExitGame();
-        }
     }
 
     GameScene::~GameScene()

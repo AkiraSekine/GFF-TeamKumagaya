@@ -12,6 +12,8 @@
 
 #include "../BulletObject.h"
 
+using namespace std;
+
 using namespace CreaDXTKLib::Input;
 using namespace CreaDXTKLib::Math;
 
@@ -35,51 +37,66 @@ namespace Character
             Shoot(_elapsedTime);
         }
 
-        if (m_gun.isContinuous && !shot)
+        if (gun.isContinuous && !shot)
         {
             m_shotTime = 0.0f;
         }
 
-        int bulletCount = 0;
+        auto tail_itr = remove_if(
+            m_bullets.begin(),
+            m_bullets.end(),
+            [&](BulletObject* bullet)
+            {
+                // e’e‚ÌXVˆ—
+                bullet->Update(_elapsedTime);
 
-        // e’e‚ÌXVˆ—
+                // e’e‚ª”jŠü‚³‚ê‚é‚×‚«ó‘Ô‚È‚ç”jŠü‚·‚é
+                if (bullet->isDestroy)
+                {
+                    delete bullet;
+                }
+
+                return bullet->isDestroy;
+            });
+
+        m_bullets.erase(tail_itr, m_bullets.end());
+    }
+
+    void Player::Draw()
+    {
+        __super::Draw();
+
         for (BulletObject* bullet : m_bullets)
         {
-            bullet->Update(_elapsedTime);
-
-            // e’e‚ª”jŠü‚³‚ê‚é‚×‚«ó‘Ô‚È‚ç”jŠü‚·‚é
-            if (bullet->isDestroy)
-            {
-                delete bullet;
-
-                m_bullets.erase(m_bullets.begin() + bulletCount);
-            }
-
-            bulletCount++;
+            bullet->Draw(DirectX::Colors::Black);
         }
     }
 
     void Player::Shoot(float _elapsedTime)
     {
         // ˜AŽË‰Â”\‚©
-        if (m_gun.isContinuous)
+        if (gun.isContinuous)
         {
             // ˜AŽËŠÔŠu‚ðŒvŽZ
-            const float fireTime = 1.0f / m_gun.fireSpeed / 60.0f;
+            const float oneMinuts = 60.0f;
+            const float fireTime = 1.0f / (gun.fireSpeed / oneMinuts);
 
             m_shotTime += _elapsedTime;
 
             // ˜AŽËŠÔŠu‚ð‰ß‚¬‚Ä‚¢‚½‚çe’e‚ð¶¬
             if (m_shotTime >= fireTime)
             {
-                m_bullets.push_back(new BulletObject());
+                m_bullets.push_back(new BulletObject(GetImageHandle(), *this));
+                m_bullets.back()->bullet = gun.bullet;
 
                 m_shotTime -= fireTime;
             }
         }
         else
         {
-            m_bullets.push_back(new BulletObject());
+            // ’e‚Ì¶¬
+            m_bullets.push_back(new BulletObject(GetImageHandle(), *this));
+            m_bullets.back()->bullet = gun.bullet;
         }
     }
 

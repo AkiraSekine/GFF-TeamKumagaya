@@ -31,20 +31,7 @@ namespace Character
         /// </summary>
         float HP;
 
-        /// <summary>
-        /// e‚Ìî•ñ‚ğæ“¾
-        /// </summary>
-        virtual inline System::Gun GetGunData() const final
-        {
-            return m_gun;
-        }
-
     protected:
-
-        /// <summary>
-        /// e‚Ìî•ñ
-        /// </summary>
-        System::Gun m_gun;
 
         /// <summary>
         /// –hŒä—Í

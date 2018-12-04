@@ -41,6 +41,11 @@ namespace Character
         /// <param name="_elapsedTime">前フレームからの経過時間</param>
         virtual void Update(float _elapsedTime) override;
 
+        /// <summary>
+        /// 描画処理
+        /// </summary>
+        void Draw();
+
     private:
 
         /// <summary>
