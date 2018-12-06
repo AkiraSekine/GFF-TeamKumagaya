@@ -38,3 +38,10 @@ SR
 精度
 連射可能か
 
+Select Scene Coordinate 
+Param     W:1058 H:156 Size:640*640
+Weapon    W:222  H:284 Size:512*512
+Done      W:1442 H:863 Size:256*128
+Back      W:1058 H:863 Size:256*128
+UPArrow   W:350  H:92  Size:256*128
+DOWNArrow W:350  H:860 Size:256*128
