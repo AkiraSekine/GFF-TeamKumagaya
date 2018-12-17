@@ -27,6 +27,7 @@ namespace GFF
 namespace UI
 {
     Button* Button::m_selectButton;
+    bool Button::noProcess = false;
 
     void Button::SetStateColor(const XMVECTORF32 & _color, const State & _state)
     {
@@ -42,14 +43,10 @@ namespace UI
     {
         _elapsedTime;
 
-        if (m_state != State::Select)
+        if (noProcess)
         {
             return;
         }
-
-        // 縦方向と横方向の入力を取得
-        float verticalInput = Inputs::Instance().GetValue(L"Vertical");
-        float horizontalInput = Inputs::Instance().GetValue(L"Horizontal");
 
         // マウスでの決定入力を取得
         float done = Inputs::Instance().GetValue(L"DoneMouse");
@@ -58,29 +55,10 @@ namespace UI
         Vector2 mousePos = CreaDXTKLib::Input::Mouse::Instance().Position();
 
         // 画像サイズを取得
-        Vector2 imageSize = GetImageSize() * 0.5f;
+        Vector2 imageSize = GetImageSize() * Scale() * 0.5f;
 
         // 中心座標を取得
         Vector2 pos = Position();
-
-        // 方向の入力があったらその方向のボタンを選択する
-        if (verticalInput > 0)
-        {
-            ChangeSelect(Direction::Up);
-        }
-        else if (verticalInput < 0)
-        {
-            ChangeSelect(Direction::Bottom);
-        }
-
-        if (horizontalInput > 0)
-        {
-            ChangeSelect(Direction::Right);
-        }
-        else if (horizontalInput < 0)
-        {
-            ChangeSelect(Direction::Left);
-        }
 
         // カーソルがボタンの画像内に入っていたら
         if (Within<float>(mousePos.x, pos.x - imageSize.x, pos.x + imageSize.x) &&
@@ -105,12 +83,48 @@ namespace UI
         {
             m_state = State::Select;
         }
+
+        if (m_state != State::Select)
+        {
+            return;
+        }
+
+        // 縦方向と横方向の入力を取得
+        float verticalInput = Inputs::Instance().GetValue(L"Vertical");
+        float horizontalInput = Inputs::Instance().GetValue(L"Horizontal");
+
+        // 方向の入力があったらその方向のボタンを選択する
+        if (verticalInput > 0)
+        {
+            ChangeSelect(Direction::Up);
+
+            noProcess = true;
+        }
+        else if (verticalInput < 0)
+        {
+            ChangeSelect(Direction::Bottom);
+
+            noProcess = true;
+        }
+
+        if (horizontalInput > 0)
+        {
+            ChangeSelect(Direction::Right);
+
+            noProcess = true;
+        }
+        else if (horizontalInput < 0)
+        {
+            ChangeSelect(Direction::Left);
+
+            noProcess = true;
+        }
     }
 
     void Button::Draw()
     {
         // 現在の状態に合わせて加算色を変えて描画
-        __super::Draw(m_colors[(int)m_state]);
+        Image::Instance().Draw(GetImageHandle(), *this, m_colors[(int)m_state], GetImageSize() / 2.0f);
     }
 
     bool Button::IsDone()
@@ -126,8 +140,12 @@ namespace UI
 
     void Button::SetSelect()
     {
-        // 元の選択状態のボタンを通常の状態にし、このボタンを選択状態に設定
-        m_selectButton->m_state = State::Normal;
+        if (m_selectButton != nullptr)
+        {
+            // 元の選択状態のボタンを通常の状態にし、このボタンを選択状態に設定
+            m_selectButton->m_state = State::Normal;
+        }
+
         m_selectButton = this;
 
         m_state = State::Select;

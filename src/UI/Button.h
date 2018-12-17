@@ -41,6 +41,8 @@ namespace UI
             Right   // 右
         };
 
+        static bool noProcess;
+
         /// <summary>
         /// 状態毎の加算色を設定
         /// </summary>
@@ -96,7 +98,7 @@ namespace UI
         /// <summary>
         /// 現在の状態
         /// </summary>
-        State m_state = State::None;
+        State m_state = State::Normal;
 
         /// <summary>
         /// 移動先のボタン

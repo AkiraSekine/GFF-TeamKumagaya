@@ -188,6 +188,7 @@
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Math\Math.inl" />
     <ClCompile Include="src\Scene\GameScene.cpp" />
+    <ClCompile Include="src\Scene\MenuScene.cpp" />
     <ClCompile Include="src\System\IOData.cpp" />
     <ClCompile Include="src\UI\Button.cpp" />
   </ItemGroup>
@@ -201,6 +202,7 @@
     <ClInclude Include="src\Game\Item.h" />
     <ClInclude Include="src\Math\Math.h" />
     <ClInclude Include="src\Scene\GameScene.h" />
+    <ClInclude Include="src\Scene\MenuScene.h" />
     <ClInclude Include="src\System\IOData.h" />
     <ClInclude Include="src\System\Equipment.h" />
     <ClInclude Include="src\UI\Button.h" />

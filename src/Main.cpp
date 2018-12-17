@@ -9,7 +9,7 @@
 #include "CreaDXTKLib/GameManager.h"
 #include "Input/Input.h"
 
-#include "Scene/GameScene.h"
+#include "Scene/MenuScene.h"
 
 CREA_DXTKLIB
 
@@ -20,7 +20,7 @@ using namespace GFF::Scene;
 
 void SetUp()
 {
-    SetStartScene<GameScene>();
+    SetStartScene<MenuScene>();
 
     Inputs::Instance().Add(L"Vertical", Keys::W, 1.0f, CheckMode::Down);
     Inputs::Instance().Add(L"Vertical", Keys::S, -1.0f, CheckMode::Down);
