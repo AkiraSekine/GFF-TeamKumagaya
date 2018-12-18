@@ -22,6 +22,7 @@ namespace CreaDXTKLib
             const Math::Vector2& _scale = Math::Vector2::one,
             Math::Transform2D* _parent = nullptr,
             const std::wstring& _objectName = L"Object");
+        /// <param name="_imageName">画像のハンドル名</param>
         /// <param name="_transform">Transform2D</param>
         /// <param name="_parent">親transform2D</param>
         /// <param name="_objectName">オブジェクト名</param>
@@ -42,20 +43,48 @@ namespace CreaDXTKLib
         /// オブジェクトを描画
         /// </summary>
         /// <param name="_color">加算色</param>
-        virtual void Draw(const DirectX::FXMVECTOR& _color = DirectX::Colors::White) const final;
+        virtual void Draw(const DirectX::FXMVECTOR& _color = DirectX::Colors::White) const;
         /// <summary>
         /// オブジェクトを描画
         /// </summary>
         /// <param name="_rect">描画矩形</param>
         /// <param name="_color">加算色</param>
         virtual void Draw(const RECT& _rect,
-            const DirectX::FXMVECTOR& _color = DirectX::Colors::White) const final;
+            const DirectX::FXMVECTOR& _color = DirectX::Colors::White) const;
+        /// <summary>
+        /// オブジェクトを描画
+        /// </summary>
+        /// <param name="_pivot">中心座標</param>
+        /// <param name="_color">加算色</param>
+        virtual void Draw(const CreaDXTKLib::Math::Vector2 _pivot,
+            const DirectX::FXMVECTOR& _color = DirectX::Colors::White) const;
+        /// <summary>
+        /// オブジェクトを描画
+        /// </summary>
+        /// <param name="_rect">描画矩形</param>
+        /// <param name="_pivot">中心座標</param>
+        /// <param name="_color">加算色</param>
+        virtual void Draw(const RECT& _rect,
+            const CreaDXTKLib::Math::Vector2 _pivot,
+            const DirectX::FXMVECTOR& _color = DirectX::Colors::White) const;
 
         /// <summary>
         /// アクティブ状態を設定
         /// </summary>
         /// <param name="_isActive">アクティブ状態か</param>
         virtual void SetActive(const bool& _isActive) final;
+
+        /// <summary>
+        /// 画像サイズを取得
+        /// </summary>
+        /// <returns>画像サイズ</returns>
+        virtual Math::Vector2 GetImageSize() const final;
+
+        /// <summary>
+        /// 画像ハンドルを取得
+        /// </summary>
+        /// <returns>画像ハンドル</returns>
+        virtual std::wstring GetImageHandle() const final;
 
         /// <summary>
         /// オブジェクト名を取得
@@ -71,11 +100,6 @@ namespace CreaDXTKLib
         virtual operator bool() const;
 
     protected:
-
-        /// <summary>
-        /// オブジェクト名
-        /// </summary>
-        std::wstring m_objectName;
 
         /// <summary>
         /// 開始処理
@@ -98,6 +122,8 @@ namespace CreaDXTKLib
         virtual void OnDisable() { }
 
     private:
+
+        std::wstring m_objectName;
 
         bool m_isActive = true;
 

@@ -29,6 +29,11 @@ namespace Game
         System::Bullet bullet;
 
         /// <summary>
+        /// 破棄するべきか
+        /// </summary>
+        bool isDestroy = false;
+
+        /// <summary>
         /// 更新処理
         /// </summary>
         /// <param name="_elapsedTime">前フレームからの経過時間</param>
@@ -40,12 +45,23 @@ namespace Game
         /// <param name="_bullet">銃弾データ</param>
         void SetBullet(const System::Bullet& _bullet);
 
+        /// <summary>
+        /// 描画処理
+        /// </summary>
+        /// <param name="_color">加算色</param>
+        void Draw(const DirectX::XMVECTORF32& _color = DirectX::Colors::White);
+
     private:
 
         /// <summary>
         /// 前フレームの座標
         /// </summary>
         CreaDXTKLib::Math::Vector2 m_beforePos;
+
+        /// <summary>
+        /// 初期位置
+        /// </summary>
+        CreaDXTKLib::Math::Vector2 m_startPos;
 
         /// <summary>
         /// 開始処理
