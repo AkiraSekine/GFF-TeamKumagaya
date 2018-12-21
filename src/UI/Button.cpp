@@ -2,7 +2,7 @@
 // 制作者:     関根 明良
 // 内容:       ボタンUIクラス
 // 作成日:     2018/11/29
-// 最終更新日:
+// 最終更新日: 2018/12/17
 //
 
 #include "Button.h"
@@ -11,8 +11,11 @@
 #include "Input/Mouse.hpp"
 #include "Math/Vector2.h"
 #include "Draw/Image.h"
+#include "Draw/Text.h"
 
 #include "../Math/Math.h"
+
+using namespace std;
 
 using namespace DirectX;
 
@@ -37,6 +40,18 @@ namespace UI
     void Button::SetDestinationButton(Button & _button, const Direction & _direction)
     {
         m_destinations[(int)_direction] = &_button;
+    }
+
+    void Button::SetString(const wstring & _name, const wstring _text, ...)
+    {
+        m_text = _text;
+        m_fontHandle = _name;
+
+        va_list args;
+
+        va_start(args, _text);
+        m_textHalfSize = Text::Instance().GetStringSize(_name, _text, args);
+        va_end(args);
     }
 
     void Button::Update(float _elapsedTime)
@@ -125,6 +140,8 @@ namespace UI
     {
         // 現在の状態に合わせて加算色を変えて描画
         Image::Instance().Draw(GetImageHandle(), *this, m_colors[(int)m_state], GetImageSize() / 2.0f);
+
+        Text::Instance().Draw(m_fontHandle, Position() - m_textHalfSize, m_text);
     }
 
     bool Button::IsDone()

@@ -8,6 +8,8 @@
 #include "MenuScene.h"
 
 #include "Draw/Image.h"
+#include "Draw/Text.h"
+#include "Utility/Debug.h"
 
 using namespace CreaDXTKLib::Math;
 using namespace CreaDXTKLib::Draw;
@@ -24,6 +26,9 @@ namespace Scene
 
         m_doneButton = Button(L"Dot", Vector2(100,50), 0.0f, Vector2(100, 50));
         m_backButton = Button(L"Dot", Vector2(100,200), 0.0f, Vector2(100, 50));
+
+        m_doneButton.SetString(L"UI", L"ケッテイ");
+        m_backButton.SetString(L"UI", L"モドル");
 
         m_doneButton.SetStateColor(DirectX::Colors::Yellow, Button::State::Select);
         m_doneButton.SetStateColor(DirectX::Colors::Gray, Button::State::Pressed);
@@ -56,6 +61,9 @@ namespace Scene
     {
         m_doneButton.Draw();
         m_backButton.Draw();
+
+        Text::Instance().Draw(L"UI", Vector2::zero, L"Hoge");
+        CreaDXTKLib::Utility::Debug::Log(L"%f %f\n", Text::Instance().GetStringSize(L"UI", L"A").x, Text::Instance().GetStringSize(L"UI", L"A").y);
     }
 } // Scene
 } // GFF

@@ -8,6 +8,7 @@
 #include "CreaDXTKLib/CreaDXTKLib.h"
 #include "CreaDXTKLib/GameManager.h"
 #include "Input/Input.h"
+#include "Draw/Text.h"
 
 #include "Scene/MenuScene.h"
 
@@ -15,13 +16,12 @@ CREA_DXTKLIB
 
 using namespace CreaDXTKLib;
 using namespace CreaDXTKLib::Input;
+using namespace CreaDXTKLib::Draw;
 
 using namespace GFF::Scene;
 
 void SetUp()
 {
-    SetStartScene<MenuScene>();
-
     Inputs::Instance().Add(L"Vertical", Keys::W, 1.0f, CheckMode::Down);
     Inputs::Instance().Add(L"Vertical", Keys::S, -1.0f, CheckMode::Down);
     Inputs::Instance().Add(L"Horizontal", Keys::D, 1.0f, CheckMode::Down);
@@ -29,4 +29,8 @@ void SetUp()
     Inputs::Instance().Add(L"Done", Keys::Enter, 1.0f, CheckMode::Down);
     Inputs::Instance().Add(L"DoneMouse", MouseButtons::Left, 1.0f, CheckMode::Press);
     Inputs::Instance().Add(L"DoneMouse", MouseButtons::Left, -1.0f, CheckMode::Release);
+
+    Text::Instance().Load(L"UI", L"Data/Fonts/Kirin.spritefont");
+
+    SetStartScene<MenuScene>();
 }

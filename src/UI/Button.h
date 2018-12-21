@@ -2,7 +2,7 @@
 // 制作者:     関根 明良
 // 内容:       ボタンUIクラス
 // 作成日:     2018/11/29
-// 最終更新日:
+// 最終更新日: 2018/12/17
 //
 
 #pragma once
@@ -13,6 +13,9 @@ namespace GFF
 {
 namespace UI
 {
+    /// <summary>
+    /// ボタンUIクラス
+    /// </summary>
     class Button : public CreaDXTKLib::Object2D
     {
         OBJECT2D(Button)
@@ -56,6 +59,13 @@ namespace UI
         /// <param name="_button">移動先のボタン</param>
         /// <param name="_direction">方向</param>
         void SetDestinationButton(Button& _button, const Direction& _direction);
+
+        /// <summary>
+        /// 文字列の設定
+        /// </summary>
+        /// <param name="_name">ハンドル名</param>
+        /// <param name="_text">描画文字列</param>
+        void SetString(const std::wstring& _name, const std::wstring _text, ...);
 
         /// <summary>
         /// 更新処理
@@ -109,6 +119,21 @@ namespace UI
         /// 加算色
         /// </summary>
         DirectX::XMVECTORF32 m_colors[numOfState];
+
+        /// <summary>
+        /// 描画文字列
+        /// </summary>
+        std::wstring m_text;
+
+        /// <summary>
+        /// フォントハンドル
+        /// </summary>
+        std::wstring m_fontHandle;
+
+        /// <summary>
+        /// 描画文字列の半分のサイズ
+        /// </summary>
+        CreaDXTKLib::Math::Vector2 m_textHalfSize;
 
         /// <summary>
         /// 決定されたか
