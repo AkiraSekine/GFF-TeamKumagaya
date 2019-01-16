@@ -44,6 +44,8 @@ namespace UI
             Right   // 右
         };
 
+        static bool noProcess;
+
         /// <summary>
         /// 状態毎の加算色を設定
         /// </summary>
@@ -62,8 +64,15 @@ namespace UI
         /// 文字列の設定
         /// </summary>
         /// <param name="_name">ハンドル名</param>
+        /// <param name="_position">描画位置</param>
         /// <param name="_text">描画文字列</param>
-        void SetString(const std::wstring& _name, const std::wstring _text, ...);
+        void SetString(const std::wstring& _name, const CreaDXTKLib::Math::Vector2& _position, const std::wstring _text);
+
+        /// <summary>
+        /// 描画文字列の色を設定
+        /// </summary>
+        /// <param name="_color">色</param>
+        void SetTextColor(const DirectX::XMVECTORF32& _color);
 
         /// <summary>
         /// 更新処理
@@ -106,7 +115,7 @@ namespace UI
         /// <summary>
         /// 現在の状態
         /// </summary>
-        State m_state = State::None;
+        State m_state = State::Normal;
 
         /// <summary>
         /// 移動先のボタン
@@ -119,6 +128,11 @@ namespace UI
         DirectX::XMVECTORF32 m_colors[numOfState];
 
         /// <summary>
+        /// 文字列の色
+        /// </summary>
+        DirectX::XMVECTORF32 m_textColor;
+
+        /// <summary>
         /// 描画文字列
         /// </summary>
         std::wstring m_text;
@@ -129,9 +143,9 @@ namespace UI
         std::wstring m_fontHandle;
 
         /// <summary>
-        /// 描画文字列の半分のサイズ
+        /// 描画文字列の座標
         /// </summary>
-        CreaDXTKLib::Math::Vector2 m_textHalfSize;
+        CreaDXTKLib::Math::Vector2 m_textPos;
 
         /// <summary>
         /// 決定されたか

@@ -74,6 +74,7 @@ namespace Scene
 
         // InputScene‚ªI—¹‚·‚é‚Ì‚Å‰æ‘œ‚ğ”jŠü
         Image::Instance().Erase(L"Player");
+        Image::Instance().Erase(L"Dot");
     }
 
     void GFF::Scene::GameScene::Update(float _elapsedTime)
