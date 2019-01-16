@@ -23,7 +23,7 @@ namespace Scene
     public:
 
         MenuScene();
-        ~MenuScene();
+        virtual ~MenuScene();
 
         /// <summary>
         /// XVˆ—

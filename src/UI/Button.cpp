@@ -42,16 +42,18 @@ namespace UI
         m_destinations[(int)_direction] = &_button;
     }
 
-    void Button::SetString(const wstring & _name, const wstring _text, ...)
+    void Button::SetString(const wstring & _name, const Vector2 & _position, const wstring _text)
     {
-        m_text = _text;
         m_fontHandle = _name;
 
-        va_list args;
+        m_textPos = _position;
 
-        va_start(args, _text);
-        m_textHalfSize = Text::Instance().GetStringSize(_name, _text, args);
-        va_end(args);
+        m_text = _text;
+    }
+
+    void Button::SetTextColor(const XMVECTORF32 & _color)
+    {
+        m_textColor = _color;
     }
 
     void Button::Update(float _elapsedTime)
@@ -141,7 +143,7 @@ namespace UI
         // åªç›ÇÃèÛë‘Ç…çáÇÌÇπÇƒâ¡éZêFÇïœÇ¶Çƒï`âÊ
         Image::Instance().Draw(GetImageHandle(), *this, m_colors[(int)m_state], GetImageSize() / 2.0f);
 
-        Text::Instance().Draw(m_fontHandle, Position() - m_textHalfSize, m_text);
+        Text::Instance().Draw(m_fontHandle, Position() + m_textPos, m_textColor, m_text);
     }
 
     bool Button::IsDone()
