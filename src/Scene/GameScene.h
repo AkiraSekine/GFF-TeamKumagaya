@@ -24,7 +24,7 @@ namespace Scene
     public:
 
         GameScene();
-        virtual ~GameScene();
+        virtual ~GameScene() override;
 
         /// <summary>
         /// XVˆ—

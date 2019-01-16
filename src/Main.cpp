@@ -2,7 +2,7 @@
 // 制作者:     関根 明良
 // 内容:       エントリポイント
 // 作成日:     2018/10/23
-// 最終更新日: 2018/11/29
+// 最終更新日: 2019/01/16
 //
 
 #include "CreaDXTKLib/CreaDXTKLib.h"
@@ -24,8 +24,12 @@ using namespace GFF::Scene;
 
 void SetUp()
 {
+    // ウィンドウの設定
+    Window::Instance().SetStyle(WS_EX_CLIENTEDGE);
     Window::Instance().SetSize(1920, 1080);
+    Window::Instance().SetPosition(Math::Vector2::zero);
 
+    // 入力の設定
     Inputs::Instance().Add(L"Vertical", Keys::W, 1.0f, CheckMode::Down);
     Inputs::Instance().Add(L"Vertical", Keys::S, -1.0f, CheckMode::Down);
     Inputs::Instance().Add(L"Horizontal", Keys::D, 1.0f, CheckMode::Down);
@@ -34,7 +38,9 @@ void SetUp()
     Inputs::Instance().Add(L"DoneMouse", MouseButtons::Left, 1.0f, CheckMode::Press);
     Inputs::Instance().Add(L"DoneMouse", MouseButtons::Left, -1.0f, CheckMode::Release);
 
+    // フォントファイルの読み込み
     Text::Instance().Load(L"UI", L"Data/Fonts/Giraffe.spritefont");
 
+    // 最初のシーンを設定
     SetStartScene<MenuScene>();
 }

@@ -2,17 +2,20 @@
 // 制作者:     関根 明良
 // 内容:       メニューシーン
 // 作成日:     2018/12/04
-// 最終更新日:
+// 最終更新日: 2019/01/16
 //
 
 #pragma once
 
 #include "CreaDXTKLib/Scene.h"
 
-#include "../UI/Button.h"
-
 namespace GFF
 {
+    namespace UI
+    {
+        class Button;
+    }
+
 namespace Scene
 {
     /// <summary>
@@ -23,7 +26,7 @@ namespace Scene
     public:
 
         MenuScene();
-        virtual ~MenuScene();
+        virtual ~MenuScene() override;
 
         /// <summary>
         /// 更新処理
@@ -38,8 +41,8 @@ namespace Scene
 
     private:
 
-        UI::Button m_doneButton;
-        UI::Button m_backButton;
+        UI::Button* m_doneButton;
+        UI::Button* m_backButton;
     };
 } // Scene
 } // GFF
