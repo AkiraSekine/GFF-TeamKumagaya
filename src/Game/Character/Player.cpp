@@ -35,31 +35,34 @@ namespace Character
         if (shot)
         {
             Shoot(_elapsedTime);
+            //Shoot(_elapsedTime);
         }
 
         if (gun.isContinuous && !shot)
         {
             m_shotTime = 0.0f;
         }
+    }
 
-        auto tail_itr = remove_if(
-            m_bullets.begin(),
-            m_bullets.end(),
-            [&](BulletObject* bullet)
-            {
-                // e’e‚ÌXVˆ—
-                bullet->Update(_elapsedTime);
+    void Player::LateUpdate(float _elapsedTime)
+    {
+        //// ”jŠü‚·‚×‚«ó‘Ô‚Ìe’e‚ğ•ª‚¯‚é
+        //auto tail_itr = remove_if(
+        //    m_bullets.begin(),
+        //    m_bullets.end(),
+        //    [&](BulletObject* bullet)
+        //    {
+        //        // e’e‚ª”jŠü‚³‚ê‚é‚×‚«ó‘Ô‚È‚ç•ª‚¯‚é
+        //        if (bullet->isDestroy)
+        //        {
+        //            delete bullet;
+        //        }
 
-                // e’e‚ª”jŠü‚³‚ê‚é‚×‚«ó‘Ô‚È‚ç”jŠü‚·‚é
-                if (bullet->isDestroy)
-                {
-                    delete bullet;
-                }
+        //        return bullet->isDestroy;
+        //    });
 
-                return bullet->isDestroy;
-            });
-
-        m_bullets.erase(tail_itr, m_bullets.end());
+        //// •ª‚¯‚ç‚ê‚½e’e‚ğ”jŠü‚·‚é
+        //m_bullets.erase(tail_itr, m_bullets.end());
     }
 
     void Player::Draw()
@@ -79,7 +82,7 @@ namespace Character
         {
             // ˜AËŠÔŠu‚ğŒvZ
             const float oneMinuts = 60.0f;
-            const float fireTime = 1.0f / (gun.fireSpeed / oneMinuts);
+            const float fireTime = oneMinuts / gun.fireSpeed;
 
             m_shotTime += _elapsedTime;
 

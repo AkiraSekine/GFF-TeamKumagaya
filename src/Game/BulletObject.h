@@ -29,11 +29,6 @@ namespace Game
         System::Bullet bullet;
 
         /// <summary>
-        /// 破棄するべきか
-        /// </summary>
-        bool isDestroy = false;
-
-        /// <summary>
         /// 更新処理
         /// </summary>
         /// <param name="_elapsedTime">前フレームからの経過時間</param>

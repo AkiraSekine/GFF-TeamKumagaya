@@ -12,6 +12,7 @@
 #include "CreaDXTKLib/CreaDXTKLib.h"
 
 #include "../System/IOData.h"
+#include "../Game/Character/Player.h"
 
 using namespace CreaDXTKLib;
 using namespace CreaDXTKLib::Input;
@@ -61,7 +62,7 @@ namespace Scene
         Image::Instance().Load(L"Dot", L"data/images/prototype/Dot.jpg");
 
         //インスタンスの生成
-        m_player = Player(L"Player",Vector2(0,0));
+        m_player = new Player(L"Player",Vector2(0,0));
     }
 
     GameScene::~GameScene()
@@ -75,16 +76,17 @@ namespace Scene
         // InputSceneが終了するので画像を破棄
         Image::Instance().Erase(L"Player");
         Image::Instance().Erase(L"Dot");
+
+        delete m_player;
     }
 
     void GFF::Scene::GameScene::Update(float _elapsedTime)
     {
-        m_player.Update(_elapsedTime);
     }
 
     void GFF::Scene::GameScene::OnRender()
     {
-        m_player.Draw();
+        m_player->Draw();
     }
 } // Scene
 } // GFF

@@ -8,12 +8,24 @@
 #pragma once
 
 #include "CreaDXTKLib/Scene.h"
-#include "../Game/Character/Player.h"
 
 #include "../System/Equipment.h"
 
+namespace CreaDXTKLib
+{
+    class Scene;
+}
+
 namespace GFF
 {
+    namespace Game
+    {
+        namespace Character
+        {
+            class Player;
+        }
+    }
+
 namespace Scene
 {
     /// <summary>
@@ -41,7 +53,7 @@ namespace Scene
         /// <summary>
         /// プレイヤー
         /// </summary>
-        GFF::Game::Character::Player m_player;
+        GFF::Game::Character::Player* m_player;
         /// <summary>
         /// 装備のパラメータ
         /// </summary>

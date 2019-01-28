@@ -82,7 +82,10 @@ namespace UI
             Within<float>(mousePos.y, pos.y - imageSize.y, pos.y + imageSize.y))
         {
             // このボタンを選択状態にする
-            SetSelect();
+            if (m_state == State::Normal)
+            {
+                SetSelect();
+            }
 
             // ボタン上でクリックされたら押されている状態に
             // ボタン上でクリックを放したら決定された状態にする

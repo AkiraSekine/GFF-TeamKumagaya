@@ -28,7 +28,7 @@ namespace Game
         if (distance.SqrMagnitude() > bullet.distance * bullet.distance ||
             collider->CheckCollision() != nullptr)
         {
-            isDestroy = true;
+            Destroy();
         }
     }
 
@@ -48,6 +48,8 @@ namespace Game
 
         // 線分コライダーを移動前座標から移動後座標の線分で生成
         collider = new LineCollider(m_beforePos, Position());
+
+        ObjectName(L"bullet");
     }
 
     void BulletObject::Move(float _elapsedTime)

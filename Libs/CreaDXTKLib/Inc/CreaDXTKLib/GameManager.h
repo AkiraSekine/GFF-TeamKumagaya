@@ -74,11 +74,15 @@ namespace CreaDXTKLib
 
         void EraseObject(const int& _id);
 
+        void DestroyAllObject();
+
     private:
 
         Scene * m_nowScene;
 
         std::vector<Object2D*> m_objects;
+
+        bool m_isSceneTransition;
     };
 } // CreaDXTKLib
 
