@@ -28,6 +28,7 @@ namespace Scene
     MenuScene::MenuScene()
     {
         Image::Instance().Load(L"Dot", L"data/images/prototype/Dot.jpg");
+        Image::Instance().Load(L"Arrow", L"data/images/UI/Arrow.png");
 
         // äeÉ{É^ÉìÇê∂ê¨
         m_doneButton = new Button(L"Dot", Vector2(1442, 863), 0.0f, Vector2(256, 128));
@@ -57,6 +58,7 @@ namespace Scene
     MenuScene::~MenuScene()
     {
         Image::Instance().Erase(L"Dot");
+        Image::Instance().Erase(L"Arrow");
 
         delete m_doneButton;
         delete m_backButton;

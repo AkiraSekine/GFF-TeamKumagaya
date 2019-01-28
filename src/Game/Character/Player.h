@@ -42,6 +42,12 @@ namespace Character
         virtual void Update(float _elapsedTime) override;
 
         /// <summary>
+        /// Updateの後に実行される更新処理
+        /// </summary>
+        /// <param name="_elapsedTime">前フレームからの経過時間</param>
+        virtual void LateUpdate(float _elapsedTime) override;
+
+        /// <summary>
         /// 描画処理
         /// </summary>
         void Draw();
