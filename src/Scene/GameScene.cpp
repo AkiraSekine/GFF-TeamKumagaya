@@ -77,11 +77,17 @@ namespace Scene
         Image::Instance().Erase(L"Player");
         Image::Instance().Erase(L"Dot");
 
+        for (Enemy* enemy : m_enemys)
+        {
+            enemy->Destroy();
+        }
+
         delete m_player;
     }
 
     void GFF::Scene::GameScene::Update(float _elapsedTime)
     {
+
     }
 
     void GFF::Scene::GameScene::OnRender()
