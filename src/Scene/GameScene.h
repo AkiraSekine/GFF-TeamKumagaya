@@ -11,6 +11,8 @@
 
 #include "../System/Equipment.h"
 
+#include "../Game/Character/Enemy.h"
+
 namespace CreaDXTKLib
 {
     class Scene;
@@ -54,6 +56,12 @@ namespace Scene
         /// プレイヤー
         /// </summary>
         GFF::Game::Character::Player* m_player;
+
+        /// <summary>
+        /// 敵
+        /// </summary>
+        std::vector<GFF::Game::Character::Enemy*> m_enemys;
+
         /// <summary>
         /// 装備のパラメータ
         /// </summary>
