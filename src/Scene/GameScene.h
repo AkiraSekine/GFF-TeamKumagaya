@@ -9,7 +9,7 @@
 
 #include "CreaDXTKLib/Scene.h"
 
-#include "../System/Equipment.h"
+#include "../System/SpawnData.h"
 
 #include "../Game/Character/Enemy.h"
 
@@ -66,6 +66,11 @@ namespace Scene
         /// ‘•”õ‚Ìƒpƒ‰ƒ[ƒ^
         /// </summary>
         GFF::System::EquipmentDatas m_equipmentDatas;
+
+        /// <summary>
+        /// “G‚Ì¶¬î•ñ
+        /// </summary>
+        std::vector<GFF::System::SpawnData> m_spawnDatas;
     };
 } // Scene
 } // GFF

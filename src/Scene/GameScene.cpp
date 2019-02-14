@@ -2,7 +2,7 @@
 // 制作者:     関根 明良
 // 内容:       ゲームシーン
 // 作成日:     2018/10/26
-// 最終更新日: 2018/11/27
+// 最終更新日: 2019/02/13
 //
 
 #include "GameScene.h"
@@ -37,6 +37,13 @@ namespace Scene
 
         // 装備のパラメータを読み込む
         if (!IOData::Instance().EquipmentLoad(m_equipmentDatas))
+        {
+            // 読み込みに失敗したらゲームを終了する
+            ExitGame();
+        }
+
+        // 敵の生成情報を読み込む
+        if (!IOData::Instance().SpawnTimeLoad(m_spawnDatas))
         {
             // 読み込みに失敗したらゲームを終了する
             ExitGame();
