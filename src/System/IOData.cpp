@@ -2,16 +2,16 @@
 // 制作者:     関根 明良
 // 内容:       データの入出力
 // 作成日:     2018/11/27
-// 最終更新日:
+// 最終更新日: 2019/02/13
 //
 
 #include "IOData.h"
 
-#include <istream>
 #include <fstream>
+
 #include "Utility/Debug.h"
 
-#include "Equipment.h"
+#include "SpawnData.h"
 
 using namespace std;
 using namespace CreaDXTKLib::Utility;
@@ -62,5 +62,57 @@ namespace System
 
         return true;
     }
+
+    bool IOData::SpawnTimeLoad(vector<SpawnData>& _spawnDatas)
+    {
+        ifstream file;
+
+        // スポーンデータファイルを開く
+        file.open("data/GameDatas/Spawn.dat", ios::in | ios::binary);
+
+        // 開けなかったら終了
+        if (!file)
+        {
+            Debug::Log(L"can not file open.\n");
+            return false;
+        }
+
+        char breakLine;
+        int dataQty;
+
+        // 全体のサイズを取得
+        file.read((char*)&dataQty, sizeof(int));
+        file.read(&breakLine, sizeof(char));
+
+        // サイズを変更
+        _spawnDatas.resize(dataQty);
+
+        for (int i = 0; i < dataQty; i++)
+        {
+            SpawnData* sData = &_spawnDatas.at(i);
+
+            // グループ内の敵の数を取得
+            file.read((char*)&sData->enemyDataQty, sizeof(int));
+
+            // サイズを変更
+            sData->enemyDatas.resize(sData->enemyDataQty);
+
+            for (int j = 0; j < sData->enemyDataQty; j++)
+            {
+                EnemyData* eData = &sData->enemyDatas.at(j);
+
+                // 敵のデータを取得
+                file.read((char*)eData, sizeof(EnemyData));
+            }
+
+            file.read(&breakLine, sizeof(char));
+        }
+
+        // ファイルを閉じる
+        file.close();
+
+        return true;
+    }
+
 } // System
 } // GFF
